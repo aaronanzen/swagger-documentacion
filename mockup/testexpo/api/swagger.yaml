@@ -1,0 +1,20 @@
+---
+swagger: "2.0"
+info:
+  description: "Move your app forward with the Uber API"
+  version: "1.0.0"
+  title: "rey"
+host: "localhost:8080"
+basePath: "/TestLogin"
+schemes:
+- "https"
+paths:
+  /rey:
+    get:
+      operationId: "reyGET"
+      parameters: []
+      responses:
+        200:
+          description: "A list of Person"
+      x-swagger-router-controller: "Default"
+definitions: {}

@@ -1,0 +1,62 @@
+---
+swagger: "2.0"
+info:
+  description: "Servicio que nos trae las credenciales de Minio"
+  version: "1.0.0"
+  title: "Credenciales minio"
+host: "localhost:8080"
+basePath: "/minio"
+tags:
+- name: "credenciales minio"
+  description: "minio"
+  externalDocs:
+    description: "credenciales"
+    url: "http://localhost:8080/docs"
+paths:
+  /credenciales:
+    get:
+      tags:
+      - "credenciales"
+      summary: "Product Types"
+      description: "Servicio rest que nos trae las credenciales para el acceso a minio.\
+        \ \n"
+      operationId: "credencialesGET"
+      parameters: []
+      responses:
+        200:
+          description: "An array of products"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ProductRes"
+        default:
+          description: "Unexpected error"
+          schema:
+            $ref: "#/definitions/Error"
+      x-swagger-router-controller: "Credenciales"
+definitions:
+  ProductRes:
+    type: "object"
+    properties:
+      accesskey:
+        type: "string"
+        example: "Q3AM3UQ867SPQQA43P2F"
+        description: "V9LKMYLJN5HTJZRXAVPZ"
+      secretket:
+        type: "string"
+        example: "zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG"
+        description: "FFoH7i4W+Ipn2fO4Q2OMiD9bkLH7B5fNFlaJngLQ"
+      url:
+        type: "string"
+        example: "https://play.minio.io:9000"
+        description: "https://play.minio.io:9000"
+  Error:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      message:
+        type: "string"
+      fields:
+        type: "string"
