@@ -9,10 +9,13 @@ node {
    
    echo 'Configurando variables'
   
-   sh 'rm ApiCoreBancario.yaml'
+   
+   echo 'Descargando código de SCM'
+   sh 'rm -rf *'
    checkout scm
    sh 'docker -v'
    sh 'java -version'
+   sh ' chmod 777 -R .'
    sh './generaMockup.sh apicorebancariomock  ApiCoreBancario.yaml 8080'
    
    // -- Compilando
